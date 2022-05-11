@@ -22,11 +22,12 @@ public class Department {
     @NonNull
     String state;
 
-    @NonNull
-    @ManyToOne(cascade = CascadeType.ALL)
-    Employee employee;
-
-    public Department(int did, String place, String name) {
-
-    }
+//    @NonNull
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    Employee employee;
+//
+//
+//    public Department(String dep1, String wa) {
+//
+//    }
 }

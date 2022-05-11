@@ -10,20 +10,20 @@ public class HibernateUtil {
 
     private static SessionFactory sessionFactory = buildSessionFactory();
 
-    private static SessionFactory buildSessionFactory() {
-
-        try {
+    private static SessionFactory buildSessionFactory()
+    {
+        try
+        {
             if (sessionFactory == null)
             {
                 StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
                         .configure("hibernate.cfg.xml").build();
 
-                Metadata metadata = new MetadataSources(standardRegistry)
+                Metadata metaData = new MetadataSources(standardRegistry)
                         .getMetadataBuilder()
                         .build();
 
-                sessionFactory = metadata.getSessionFactoryBuilder().build();
-
+                sessionFactory = metaData.getSessionFactoryBuilder().build();
             }
             return sessionFactory;
         } catch (Throwable ex) {
@@ -34,6 +34,7 @@ public class HibernateUtil {
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
+
     public static void shutdown() {
         getSessionFactory().close();
     }

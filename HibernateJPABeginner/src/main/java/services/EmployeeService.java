@@ -1,7 +1,7 @@
 package services;
 
+import com.hibernate.models.Address;
 import com.hibernate.models.Employee;
-
 import dao.EmployeeI;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -39,5 +39,35 @@ public class EmployeeService implements EmployeeI {
 
 
 
+    }
+
+    @Override
+    public boolean createEmployeeAndAddress(Address a) {
+        return false;
+    }
+
+    @Override
+    public boolean updateEmployee(Employee e) {
+        return false;
+    }
+
+    @Override
+    public boolean deleteEmployee(Employee e) {
+        return false;
+    }
+
+    @Override
+    public Employee getEmployeeById(int id) {
+        return null;
+    }
+
+    @Override
+    public List<Employee> findEmployeeSalaryGreaterThan(double salary) {
+        return null;
+    }
+
+    @Override
+    public List<Address> findEmployeeAddresses(Employee e) {
+        return null;
     }
 }
