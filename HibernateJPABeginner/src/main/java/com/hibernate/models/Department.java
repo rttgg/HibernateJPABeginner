@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 
 @Data
 @NoArgsConstructor
@@ -17,17 +20,15 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int did;
     @NonNull
-    @Column(length = 150, unique = true, nullable = false)
     String name;
     @NonNull
     String state;
 
-//    @NonNull
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    Employee employee;
-//
-//
-//    public Department(String dep1, String wa) {
-//
-//    }
+    @ToString.Exclude
+    @ManyToMany(mappedBy = "departments", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    Set<Employee> employees = new LinkedHashSet<>();
+
+    public Department(String name) {
+
+    }
 }
